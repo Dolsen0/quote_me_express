@@ -1,8 +1,8 @@
 import express from "express";
-import axios from "axios";
 import { getQuoteByTag } from "./controllers/GetQuoteByTag.js";
 import { getQuotes } from "./controllers/GetQuotes.js";
 import { getQuoteByAuthor } from "./controllers/GetQuoteByAuthor.js";
+import { getAuthors } from "./controllers/GetAuthors.js";
 
 const app = express();
 const PORT = 3000;
@@ -17,6 +17,8 @@ app.get("/", (req, res) => {
 });
 
 app.get("/quote", getQuotes)
+
+app.get("/quote/author", getAuthors)
 
 app.get("/quote/author/:author", getQuoteByAuthor);
 
