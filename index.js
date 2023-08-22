@@ -2,6 +2,7 @@ import express from "express";
 import axios from "axios";
 import { getQuoteByTag } from "./controllers/GetQuoteByTag.js";
 import { getQuotes } from "./controllers/GetQuotes.js";
+import { getQuoteByAuthor } from "./controllers/GetQuoteByAuthor.js";
 
 const app = express();
 const PORT = 3000;
@@ -17,7 +18,9 @@ app.get("/", (req, res) => {
 
 app.get("/quote", getQuotes)
 
-app.get("/quote/:tag", getQuoteByTag);
+app.get("/quote/author/:author", getQuoteByAuthor);
+
+app.get("/quote/tag/:tag", getQuoteByTag);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
