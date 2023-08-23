@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import { getQuoteByTag } from "./controllers/GetQuoteByTag.js";
 import { getQuotes } from "./controllers/GetQuotes.js";
 import { getQuoteByAuthor } from "./controllers/GetQuoteByAuthor.js";
@@ -6,6 +7,10 @@ import { getAuthors } from "./controllers/GetAuthors.js";
 
 const app = express();
 const PORT = 3000;
+
+// use cors middleware
+
+app.use(cors())
 
 app.use((req, res, next) => {
   console.log(`${req.method} request for ${req.url} endpoint`);
@@ -27,3 +32,8 @@ app.get("/quote/tag/:tag", getQuoteByTag);
 app.listen(PORT, () => {
   console.log(`Server is running on port http://localhost:${PORT}`);
 });
+
+
+// https://docs.quotable.io
+
+
